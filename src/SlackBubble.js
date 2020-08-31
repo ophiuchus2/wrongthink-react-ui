@@ -136,7 +136,7 @@ export default class Bubble extends React.Component {
       return (
         <Text
           style={[
-            styles.standardFont,
+            styles.userNameFont,
             styles.headerItem,
             styles.username,
             this.props.usernameStyle,
@@ -219,6 +219,11 @@ export default class Bubble extends React.Component {
 const styles = StyleSheet.create({
   standardFont: {
     fontSize: 13,
+    color: '#962C2A'
+  },
+  userNameFont: {
+    fontSize: 13,
+    color: '#51956C'
   },
   slackMessageText: {
     marginLeft: 0,

@@ -79,6 +79,7 @@ export default class Message extends React.Component {
           ]}
         >
           {/*this.renderAvatar()*/}
+          <p style={{marginRight: 2, color: '#962C2A'}}>>></p>
           {this.renderBubble()}
         </View>
       </View>
@@ -89,14 +90,14 @@ export default class Message extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     justifyContent: 'flex-start',
     marginLeft: 8,
     marginRight: 0,
   },
   slackAvatar: {
     // The bottom should roughly line up with the first line of message text.
-    height: 40,
+    /*height: 40,*/
     width: 40,
     borderRadius: 3,
   },
