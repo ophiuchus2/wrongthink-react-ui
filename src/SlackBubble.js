@@ -145,7 +145,7 @@ export default class Bubble extends React.Component {
           {username}
         </Text>
       )
-    }
+    } else { console.log("null username"); }
     return null
   }
 
@@ -169,7 +169,7 @@ export default class Bubble extends React.Component {
           }}
         />
       )
-    }
+    } else { console.log("null date"); }
     return null
   }
 
@@ -181,9 +181,9 @@ export default class Bubble extends React.Component {
   }
 
   render() {
-    const isSameThread =
-      isSameUser(this.props.currentMessage, this.props.previousMessage) &&
-      isSameDay(this.props.currentMessage, this.props.previousMessage)
+    const isSameThread = false;
+      /*isSameUser(this.props.currentMessage, this.props.previousMessage) &&
+      isSameDay(this.props.currentMessage, this.props.previousMessage)*/
 
     const messageHeader = isSameThread ? null : (
       <View style={styles.headerView}>
@@ -218,15 +218,19 @@ export default class Bubble extends React.Component {
 // The "right" position is only used in the default Bubble.
 const styles = StyleSheet.create({
   standardFont: {
-    fontSize: 15,
+    fontSize: 13,
   },
   slackMessageText: {
     marginLeft: 0,
     marginRight: 0,
+    textAlign: 'left'
   },
   container: {
-    flex: 1,
     alignItems: 'flex-start',
+    backgroundColor: '#F0E0D6',
+    minWidth: 300,
+    maxWidth: '95%',
+    padding: 5
   },
   wrapper: {
     marginRight: 60,
@@ -258,7 +262,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     color: 'white',
   },
-  
+
   tickView: {
     flexDirection: 'row',
   },

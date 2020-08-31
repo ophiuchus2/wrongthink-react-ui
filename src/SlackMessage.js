@@ -15,7 +15,7 @@ export default class Message extends React.Component {
     return {
       ...props,
       position: 'left',
-      isSameUser,
+      /*isSameUser,*/
       isSameDay,
     }
   }
@@ -61,12 +61,12 @@ export default class Message extends React.Component {
   }
 
   render() {
-    const marginBottom = isSameUser(
+    const marginBottom = 10; /*isSameUser(
       this.props.currentMessage,
       this.props.nextMessage,
     )
       ? 2
-      : 10
+      : 10*/
 
     return (
       <View>
@@ -78,7 +78,7 @@ export default class Message extends React.Component {
             this.props.containerStyle,
           ]}
         >
-          {this.renderAvatar()}
+          {/*this.renderAvatar()*/}
           {this.renderBubble()}
         </View>
       </View>
