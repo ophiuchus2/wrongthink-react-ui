@@ -57,7 +57,7 @@
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-native": "^0.63.2",
-    "react-native-gifted-chat": "^0.16.3",
+    "react-native-gifted-chat": "github:ophiuchus2/react-native-gifted-chat",
     "react-native-web": "0.11.7",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
