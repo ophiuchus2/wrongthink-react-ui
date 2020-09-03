@@ -1,5 +1,5 @@
 [submodule "third_party/react-native-gifted-chat"]
-	path = third_party/react-native-gifted-chat
+	path = src/third_party/react-native-gifted-chat
 	url = https://github.com/ophiuchus2/react-native-gifted-chat
 [submodule "protocol"]
 	path = protocol
