@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { View, ViewPropTypes, StyleSheet } from 'react-native'
 
-import { Avatar, Day, utils } from 'react-native-gifted-chat'
+import { Avatar, Day, utils } from 'react-native-gifted-chat';
 import Bubble from './SlackBubble'
 
 const { isSameUser, isSameDay } = utils
