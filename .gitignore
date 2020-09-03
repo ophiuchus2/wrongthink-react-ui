@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+./src/wrongthink_grpc_web_pb.js
+./src/wrongthink_pb.js
