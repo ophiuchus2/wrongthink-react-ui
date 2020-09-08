@@ -7,8 +7,8 @@
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
-    "@grpc/grpc-js": "~1.0.5",
-    "@grpc/proto-loader": "~0.5.4",
+    "@grpc/grpc-js": "^1.0.5",
+    "@grpc/proto-loader": "^0.5.5",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -39,7 +39,8 @@
     "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
-    "google-protobuf": "~3.12.0",
+    "google-auth-library": "^6.0.6",
+    "google-protobuf": "^3.12.4",
     "grpc-web": "~1.2.1",
     "html-webpack-plugin": "4.0.0-beta.11",
     "identity-obj-proxy": "3.0.0",
@@ -85,7 +86,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "proto": "protoc -I=./protocol/proto wrongthink.proto --js_out=import_style=commonjs:src --grpc-web_out=import_style=commonjs,mode=grpcweb:src"
+    "proto": "protoc -I=./protocol/proto wrongthink.proto --js_out=import_style=commonjs:src --grpc-web_out=import_style=commonjs,mode=grpcwebtext:src"
   },
   "eslintConfig": {
     "extends": "react-app"
