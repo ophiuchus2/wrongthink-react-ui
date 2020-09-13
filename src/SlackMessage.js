@@ -15,7 +15,7 @@ export default class Message extends React.Component {
     return {
       ...props,
       position: 'left',
-      /*isSameUser,*/
+      isSameUser,
       isSameDay,
     }
   }
@@ -49,7 +49,11 @@ export default class Message extends React.Component {
       extraStyle = { height: 0 }
     }
 
+    //console.log("render avatar, msg: " + this.props.currentMessage.text);
+    //console.log(extraStyle);
+
     const avatarProps = this.getInnerComponentProps()
+    //console.log(avatarProps);
     return (
       <Avatar
         {...avatarProps}
@@ -61,25 +65,24 @@ export default class Message extends React.Component {
   }
 
   render() {
-    const marginBottom = 10; /*isSameUser(
-      this.props.currentMessage,
-      this.props.nextMessage,
-    )
-      ? 2
-      : 10*/
-
+    //console.log("render slack message");
+    const marginLeft = isSameUser(this.props.currentMessage, this.props.previousMessage)
+      ? 50
+      : 0
+      //const marginLeft = 0;
+      const marginBottom = 2;
     return (
       <View>
         {this.renderDay()}
         <View
           style={[
             styles.container,
-            { marginBottom },
+            { marginBottom: marginBottom },
+            { marginLeft: marginLeft },
             this.props.containerStyle,
           ]}
         >
           {/*this.renderAvatar()*/}
-          <p style={{marginRight: 2, color: '#962C2A'}}>>></p>
           {this.renderBubble()}
         </View>
       </View>
@@ -90,14 +93,14 @@ export default class Message extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'flex-end',
     justifyContent: 'flex-start',
     marginLeft: 8,
     marginRight: 0,
   },
   slackAvatar: {
     // The bottom should roughly line up with the first line of message text.
-    /*height: 40,*/
+    height: 40,
     width: 40,
     borderRadius: 3,
   },

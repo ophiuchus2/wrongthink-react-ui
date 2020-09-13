@@ -19,6 +19,8 @@ import {
   utils,
 } from 'react-native-gifted-chat';
 
+import './SlackBubble.css';
+
 const { isSameUser, isSameDay } = utils
 
 export default class Bubble extends React.Component {
@@ -136,13 +138,13 @@ export default class Bubble extends React.Component {
       return (
         <Text
           style={[
-            styles.userNameFont,
+            styles.standardFont,
             styles.headerItem,
             styles.username,
             this.props.usernameStyle,
           ]}
         >
-          {username}
+           { "  " + username}
         </Text>
       )
     } else { console.log("null username"); }
@@ -181,61 +183,73 @@ export default class Bubble extends React.Component {
   }
 
   render() {
-    const isSameThread = false;
-      /*isSameUser(this.props.currentMessage, this.props.previousMessage) &&
-      isSameDay(this.props.currentMessage, this.props.previousMessage)*/
+    const isSameThread =
+      isSameUser(this.props.currentMessage, this.props.previousMessage) &&
+      isSameDay(this.props.currentMessage, this.props.previousMessage)
 
-    const messageHeader = isSameThread ? null : (
+      //console.log(this.props.currentMessage);
+      //console.log(this.props.previousMessage);
+
+    const messageHeader = isSameThread ? this.renderMessageText() : (
       <View style={styles.headerView}>
-        {this.renderUsername()}
         {this.renderTime()}
+        {this.renderUsername()}
         {this.renderTicks()}
+        {this.renderMessageText()}
       </View>
     )
 
     return (
-      <View style={[styles.container, this.props.containerStyle]}>
-        <TouchableOpacity
-          onLongPress={this.onLongPress}
-          accessibilityTraits='text'
-          {...this.props.touchableProps}
-        >
+      <View className="bubble-container">
+
           <View style={[styles.wrapper, this.props.wrapperStyle]}>
             <View>
               {this.renderCustomView()}
               {messageHeader}
               {this.renderMessageImage()}
-              {this.renderMessageText()}
+
             </View>
           </View>
-        </TouchableOpacity>
+
       </View>
     )
   }
 }
+/*
+<TouchableOpacity
+  onLongPress={this.onLongPress}
+  accessibilityTraits='text'
+  {...this.props.touchableProps}
+>
+  <View style={[styles.wrapper, this.props.wrapperStyle]}>
+    <View>
+      {this.renderCustomView()}
+      {messageHeader}
+      {this.renderMessageImage()}
+      {this.renderMessageText()}
+    </View>
+  </View>
+</TouchableOpacity>
 
+*/
 // Note: Everything is forced to be "left" positioned with this component.
 // The "right" position is only used in the default Bubble.
 const styles = StyleSheet.create({
   standardFont: {
     fontSize: 13,
-    color: '#962C2A'
-  },
-  userNameFont: {
-    fontSize: 13,
-    color: '#51956C'
+    color: 'black'
   },
   slackMessageText: {
     marginLeft: 0,
     marginRight: 0,
-    textAlign: 'left'
+    textAlign: 'left',
   },
   container: {
+    flex: 1,
     alignItems: 'flex-start',
-    backgroundColor: '#F0E0D6',
-    minWidth: 300,
-    maxWidth: '95%',
-    padding: 5
+    textAlign: 'left',
+    "&:hover": { backgroundColor: 'grey', },
+    backgroundColor: 'lightblue'
   },
   wrapper: {
     marginRight: 60,

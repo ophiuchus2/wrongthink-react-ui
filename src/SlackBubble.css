@@ -1,0 +1,12 @@
+.bubble-container {
+  flex: 1;
+  align-items: flex-start;
+  text-align: left;
+  /*background-color: lightblue;*/
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.bubble-container:hover {
+  background-color: #FAFAFA;
+}
