@@ -28,10 +28,14 @@ const ReactMarkdown = require('react-markdown');
 var messages = require('./wrongthink_pb');
 var services = require('./wrongthink_grpc_web_pb');
 
-var client = new services.wrongthinkClient('http://10.0.0.24:8080');
+var client = new services.wrongthinkClient('http://localhost:8080');
 
 /*export default */class MenuExampleIcons extends React.Component {
   state = { activeItem: 'gamepad' }
+
+  constructor(props) {
+    super(props)
+  }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
@@ -39,29 +43,21 @@ var client = new services.wrongthinkClient('http://10.0.0.24:8080');
     const { activeItem } = this.state
 
     return (
-      <Menu icon>
+      <Menu {...this.props} icon>
         <Menu.Item
-          name='gamepad'
-          active={activeItem === 'gamepad'}
+          name='bell'
+          active={activeItem === 'bell'}
           onClick={this.handleItemClick}
         >
-          <Icon name='gamepad' />
+          <Icon name='bell' />
         </Menu.Item>
 
         <Menu.Item
-          name='video camera'
-          active={activeItem === 'video camera'}
+          name='member list'
+          active={activeItem === 'member list'}
           onClick={this.handleItemClick}
         >
-          <Icon name='video camera' />
-        </Menu.Item>
-
-        <Menu.Item
-          name='video play'
-          active={activeItem === 'video play'}
-          onClick={this.handleItemClick}
-        >
-          <Icon name='video play' />
+          <Icon name='users' />
         </Menu.Item>
       </Menu>
     )
@@ -324,8 +320,8 @@ function createUser(un, pw, ad) {
            </Grid.Column>
            <Grid.Column className="mcolumn" width={11}>
              <Segment.Group style={{display: "flex", flex:1, padding: 0, margin: "0rem"}}>
-               <Segment style={{display: "flex", flexGrow: 0, padding:0, height: "3rem", align: "right"}}>
-                 <MenuExampleIcons />
+               <Segment style={{display: "flex", flexGrow: 0, padding:0, height: "3rem", justifyContent: "flex-end"}}>
+                 <MenuExampleIcons/>
                </Segment>
                <Segment style={{display: "flex", flex:1, padding:0}}>
                  <View style={{ flex: 1}} >
